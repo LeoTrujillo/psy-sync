@@ -1,15 +1,15 @@
 // tailwind.config.ts
 import type { Config } from "tailwindcss"
+import animate from "tailwindcss-animate" // 👈 ESM import (no require)
 
 const config: Config = {
-  darkMode: ["class"],
+  darkMode: "class" as const,
   content: [
     "./app/**/*.{ts,tsx}",
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}"
+    "./src/**/*.{ts,tsx}",   // 👈 cubre /src si tienes componentes ahí
   ],
-  prefix: "",
   theme: {
     container: {
       center: true,
@@ -94,7 +94,7 @@ const config: Config = {
       }
     }
   },
-  plugins: [require("tailwindcss-animate")]
+  plugins: [animate], // 👈 en ESM, usa la importación de arriba
 }
 
 export default config
