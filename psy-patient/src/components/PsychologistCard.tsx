@@ -1,5 +1,6 @@
 'use client';
 
+import Image from "next/image";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -45,7 +46,9 @@ const PsychologistCard = ({
       <CardContent className="p-6 flex-grow">
         <div className="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-4">
           <div className="relative">
-            <img 
+            <Image
+              width={100}
+              height={100}
               src={image.src} 
               alt={name}
               className="w-24 h-24 md:w-20 md:h-20 rounded-full object-cover border-2 border-primary/10"

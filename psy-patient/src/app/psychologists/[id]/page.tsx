@@ -1,6 +1,5 @@
 'use client';
 import { useState } from "react";
-import { useParams } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -85,7 +84,6 @@ const mockPsychologist = {
 };
 
 const PsychologistProfile = () => {
-  const { id } = useParams();
   const psychologist = mockPsychologist; // En una app real, se haría fetch por ID
   const [isBookingOpen, setIsBookingOpen] = useState(false);
 
