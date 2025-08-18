@@ -1,10 +1,10 @@
 import Image from "next/image";
 
-import Header from "@/app/components/Header";
-import HeroSection from "@/app/components/HeroSection";
-import PsychologistCard from "@/app/components/PsychologistCard";
-import { Input } from "@/app/components/ui/input";
-import { Button } from "@/app/components/ui/button";
+import Header from "@/components/Header";
+import HeroSection from "@/components/HeroSection";
+import PsychologistCard from "@/components/PsychologistCard";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import { Search, Filter, MapPin } from "lucide-react";
 import psychologist1 from "../assets/psychologist-1.jpg";
 import psychologist2 from "../assets/psychologist-2.jpg";

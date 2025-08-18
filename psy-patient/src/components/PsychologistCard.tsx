@@ -1,9 +1,13 @@
-import { Card, CardContent, CardFooter } from "@/app/components/ui/card";
-import { Button } from "@/app/components/ui/button";
-import { Badge } from "@/app/components/ui/badge";
+'use client';
+
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { MapPin, Star, Calendar, DollarSign } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 interface PsychologistCardProps {
+  id: number;
   name: string;
   specialty: string;
   location: string;
@@ -17,6 +21,7 @@ interface PsychologistCardProps {
 }
 
 const PsychologistCard = ({ 
+  id,
   name, 
   specialty, 
   location, 
@@ -28,6 +33,13 @@ const PsychologistCard = ({
   availability,
   specialties 
 }: PsychologistCardProps) => {
+  const router = useRouter();
+
+
+  const handleSelect = (): void => {
+    router.push(`/psychologists/${id}`);
+  }
+
   return (
     <Card className="group hover:shadow-lg transition-all duration-300 border hover:border-primary/20 h-full flex flex-col">
       <CardContent className="p-6 flex-grow">
@@ -94,7 +106,7 @@ const PsychologistCard = ({
       
       <CardFooter className="px-6 pb-6 pt-0 mt-auto">
         <div className="flex w-full space-x-3">
-          <Button variant="outline" className="flex-1">
+          <Button variant="outline" className="flex-1" onClick={handleSelect}>
             Ver Perfil
           </Button>
           <Button className="flex-1">
