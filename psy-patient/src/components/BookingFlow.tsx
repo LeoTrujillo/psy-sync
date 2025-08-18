@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
+import Calendar  from "@/components/ui/calendar";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -113,6 +113,7 @@ const BookingFlow: React.FC<BookingFlowProps> = ({ isOpen, onClose, psychologist
                   disabled={isDateDisabled}
                   locale={es}
                   className="rounded-md border"
+                  showOutsideDays
                 />
               </div>
             </div>
