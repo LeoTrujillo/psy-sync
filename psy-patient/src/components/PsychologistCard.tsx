@@ -1,11 +1,13 @@
 'use client';
 
+import { useState } from "react";
 import Image from "next/image";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Star, Calendar, DollarSign } from "lucide-react";
 import { useRouter } from "next/navigation";
+import BookingFlow from "./BookingFlow";
 
 interface PsychologistCardProps {
   id: number;
@@ -35,6 +37,7 @@ const PsychologistCard = ({
   specialties 
 }: PsychologistCardProps) => {
   const router = useRouter();
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
 
 
   const handleSelect = (): void => {
@@ -112,12 +115,22 @@ const PsychologistCard = ({
           <Button variant="outline" className="flex-1" onClick={handleSelect}>
             Ver Perfil
           </Button>
-          <Button className="flex-1">
+          <Button className="flex-1" onClick={() => setIsBookingOpen(true)}>
             <Calendar className="w-4 h-4 mr-2" />
             Agendar Cita
           </Button>
         </div>
       </CardFooter>
+
+      <BookingFlow
+        isOpen={isBookingOpen}
+        onClose={() => setIsBookingOpen(false)}
+        psychologist={{
+          name,
+          price,
+          specialty
+        }}
+      />
     </Card>
   );
 };
