@@ -1,9 +1,8 @@
-
 // tailwind.config.ts
 import type { Config } from "tailwindcss"
 
-const config: Config = {
-  darkMode: "class" as const,
+const config = {
+  darkMode: "class",
   content: [
     "./app/**/*.{ts,tsx}",
     "./pages/**/*.{ts,tsx}",
@@ -15,7 +14,9 @@ const config: Config = {
     container: {
       center: true,
       padding: "2rem",
-      screens: { "2xl": "1400px" }
+      screens: { 
+        "2xl": "1400px" 
+      }
     },
     extend: {
       colors: {
@@ -96,6 +97,6 @@ const config: Config = {
     }
   },
   plugins: [require("tailwindcss-animate")]
-}
+} satisfies Config
 
 export default config
